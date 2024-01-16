@@ -600,9 +600,10 @@ type Search struct {
 			Value    string `json:"value"`
 			Currency string `json:"currency"`
 		} `json:"currentBidPrice"`
-		Epid         string `json:"epid"`
-		ItemWebURL   string `json:"itemWebUrl"`
-		ItemLocation struct {
+		Epid                string `json:"epid"`
+		ItemWebURL          string `json:"itemWebUrl"`
+		ItemAffiliateWebURL string `json:"itemAffiliateWebUrl"`
+		ItemLocation        struct {
 			PostalCode string `json:"postalCode"`
 			Country    string `json:"country"`
 		} `json:"itemLocation"`
