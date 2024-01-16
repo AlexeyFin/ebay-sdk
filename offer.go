@@ -40,6 +40,12 @@ func OptBuyMarketplace(marketplaceID string) func(*http.Request) {
 	}
 }
 
+func OptBuyEndUserCtx(affiliateCampaignId string) func(*http.Request) {
+	return func(req *http.Request) {
+		req.Header.Set("X-EBAY-C-ENDUSERCTX", fmt.Sprintf("affiliateCampaignId=%s", affiliateCampaignId))
+	}
+}
+
 // Bidding represents an eBay item bidding.
 type Bidding struct {
 	AuctionStatus  string    `json:"auctionStatus"`

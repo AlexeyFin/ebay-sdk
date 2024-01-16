@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/jybp/ebay"
+	"github.com/AlexeyFin/ebay-sdk"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -55,4 +55,11 @@ func TestPlaceProxyBid(t *testing.T) {
 	bid, err := client.Buy.Offer.PlaceProxyBid(context.Background(), "v1|202117468662|0", ebay.BuyMarketplaceUSA, "1.23", "USD", true)
 	assert.Nil(t, err)
 	assert.Equal(t, `123`, bid.ProxyBidID)
+}
+
+func TestOptBuyEndUserCtx(t *testing.T) {
+	r, _ := http.NewRequest("", "", nil)
+	headerValue := "123456"
+	ebay.OptBuyEndUserCtx(headerValue)(r)
+	assert.Equal(t, fmt.Sprintf("affiliateCampaignId=%s", headerValue), r.Header.Get("X-EBAY-C-ENDUSERCTX"))
 }

@@ -11,8 +11,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/AlexeyFin/ebay-sdk"
 	_ "github.com/joho/godotenv/autoload"
-	"github.com/jybp/ebay"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/clientcredentials"
 )
